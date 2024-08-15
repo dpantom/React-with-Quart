@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { useAppDispatch } from './state/Hooks'
 import { connectToWebsocket } from './state/websocket/WebsocketActions'
+import ChatButton from './components/ChatButton'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +36,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <ChatButton/>
     </>
   )
 }
