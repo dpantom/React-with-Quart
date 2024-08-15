@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useAppDispatch, useAppSelector } from './state/Hooks'
+import { connectToWebsocket } from './state/websocket/WebsocketActions'
 
 function App() {
   const [count, setCount] = useState(0)
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(connectToWebsocket());
+  }, []);
 
   return (
     <>
