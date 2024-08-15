@@ -41,6 +41,7 @@ import { websocketConnected, websocketConnecting, websocketDisconnected } from "
   * @returns 
   */
  const websocketMessageReceived = (msg: ClientBoundMessage) => 
+// @ts-ignore
  (dispatch: AppDispatch, getState: () => RootState, _commService: CommunicationService) => {
     if (msg.type === "event") {
         // Example: dispatch(onResponseReceived((msg))); 

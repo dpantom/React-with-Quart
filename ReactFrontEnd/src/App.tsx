@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { useAppDispatch, useAppSelector } from './state/Hooks'
+import { useAppDispatch } from './state/Hooks'
 import { connectToWebsocket } from './state/websocket/WebsocketActions'
 
 function App() {
