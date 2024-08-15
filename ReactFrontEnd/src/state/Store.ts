@@ -1,10 +1,10 @@
-import { useAppDispatch } from './Hooks';
 import { configureStore } from "@reduxjs/toolkit";
 import CommunicationService from "../util/CommunicationService";
+import websocketReducer from './websocket/WebsocketSlice';
 
 export const store = configureStore({
     reducer: {
-
+        ws: websocketReducer,
     },
     middleware: (getDefaultMiddleWare) => getDefaultMiddleWare({
         thunk: {

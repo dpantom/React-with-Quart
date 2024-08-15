@@ -10,3 +10,15 @@ export enum ConnectionState {
 export type WebsocketState = {
     status: ConnectionState;
 }
+
+export type ServerBoundMessage = {
+    type: "event";
+    task: string;
+    description: string;
+}
+
+export type ClientBoundMessage = {
+    type: "event";
+    task: string;
+    description: string;
+}
