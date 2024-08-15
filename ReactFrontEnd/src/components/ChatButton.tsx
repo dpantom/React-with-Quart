@@ -5,6 +5,11 @@ import { useState } from "react";
 export default function ChatButton() {
     const [text, setText] = useState("");
 
+    // To get a variable from the state use the useAppSelector
+    // Example: const messages = useAppSelector(state => state.chat.messages)
+
+    // Define your dispatch here to call reducers from your state slice
+    // const dispatch = useAppDispatch()
     const send = () => {
         // Use dispatch here 
         console.log("Send button was pressed")

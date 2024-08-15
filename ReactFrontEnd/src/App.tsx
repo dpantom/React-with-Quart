@@ -2,11 +2,45 @@ import { useState, useEffect} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { useAppDispatch } from './state/Hooks'
+import { useAppDispatch, useAppSelector } from './state/Hooks'
 import { connectToWebsocket } from './state/websocket/WebsocketActions'
 import ChatButton from './components/ChatButton'
+import { ThemeOptions } from '@mui/material/styles'
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
+import ThemeModeButton from './components/ThemeModeButton'
+
+
+let theme = createTheme({});
+
+const DarkTheme: ThemeOptions = createTheme({
+  palette: {
+      mode: "dark",
+      primary: {
+          main: "#3f51b5"
+      },
+      secondary: {
+          main: "#f50057"
+      }
+  }
+});
+
+const LightTheme: ThemeOptions = createTheme({
+  palette: {
+      mode: "light",
+      primary: {
+          main: "#4f51b5"
+      },
+      secondary: {
+          main: "#f50057"
+      }
+  }
+});
 
 function App() {
+  const mode = useAppSelector(state => state.theme.mode);
+  const theme = mode === "light" ? LightTheme : DarkTheme;
+
+  
   const [count, setCount] = useState(0)
   const dispatch = useAppDispatch();
 
@@ -15,7 +49,9 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <ThemeModeButton/>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -37,7 +73,8 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <ChatButton/>
-    </>
+      
+    </ThemeProvider>
   )
 }
 
