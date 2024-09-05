@@ -9,7 +9,7 @@ import { ThemeOptions } from '@mui/material/styles'
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
 import ThemeModeButton from './components/ThemeModeButton'
 
-
+// @ts-ignore
 let theme = createTheme({});
 
 const DarkTheme: ThemeOptions = createTheme({

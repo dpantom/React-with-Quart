@@ -33,6 +33,7 @@ class AppView(WebsocketView):
 
                 # TODO
                 # implement how you will handle the messages
+                print(ws_msg)
 
 
                 await websocket.send(ws_msg)

@@ -47,6 +47,7 @@ import { websocketConnected, websocketConnecting, websocketDisconnected } from "
         // Example: dispatch(onResponseReceived((msg))); 
         // This is how you would call a reducer from a different slice based on what kind of message was received.
     }
+    console.log("Message received from server: " + msg.description)
  }
 
  export const websocketSendMessage = (msg: ServerBoundMessage) => 
@@ -56,4 +57,5 @@ import { websocketConnected, websocketConnecting, websocketDisconnected } from "
         throw new Error("Not connected to websocket");
     }
     commService.sendMessage(CHAT_WEBSOCKET_ID, msg);
+    console.log("\"" + msg + "\"" + " was sent to the server")
  }
